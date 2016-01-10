@@ -13,6 +13,8 @@ public class Prereq {
     private String attributePrereq;
     @Field("advantage_prereq")
     private String advantagePrereq;
+    @Field("when_tl")
+    private String techLevel;
 
     public Prereq() {
     }
@@ -49,6 +51,14 @@ public class Prereq {
         this.advantagePrereq = advantagePrereq;
     }
 
+    public String getTechLevel() {
+        return techLevel;
+    }
+
+    public void setTechLevel(String techLevel) {
+        this.techLevel = techLevel;
+    }
+
     @Override
     public String toString() {
         return "Prereq(" +
@@ -56,6 +66,8 @@ public class Prereq {
                 ", skillPrereq='" + skillPrereq + '\'' +
                 ", attributePrereq='" + attributePrereq + '\'' +
                 ", advantagePrereq='" + advantagePrereq + '\'' +
+                ", tech Level='" + techLevel + '\'' +
+
                 ')';
     }
 }

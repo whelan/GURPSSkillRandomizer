@@ -4,6 +4,7 @@ package dk.whelan.gurps.npc.skill.service.model.skill;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -111,7 +112,7 @@ public class Skill {
         if (categories != null) {
             return categories.getCategories();
         }
-        return null;
+        return new ArrayList<>();
     }
     @Override
     public String toString() {
