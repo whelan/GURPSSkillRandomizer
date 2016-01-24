@@ -24,6 +24,8 @@ public class Skill {
     @Field("prereq_list")
     private Prereq prereqs;
     private Category categories;
+    @Field("tl")
+    private Integer techLevel;
 
     public Skill() {
     }
@@ -108,6 +110,14 @@ public class Skill {
         this.categories = categories;
     }
 
+    public Integer getTechLevel() {
+        return techLevel;
+    }
+
+    public void setTechLevel(Integer techLevel) {
+        this.techLevel = techLevel;
+    }
+
     public List<String> getCategoryList() {
         if (categories != null) {
             return categories.getCategories();
@@ -124,6 +134,7 @@ public class Skill {
                 ", reference='" + reference + '\'' +
                 ", points=" + points +
                 ", book='" + book + '\'' +
+                ", techlevel= '" + techLevel + '\'' +
                 ", prereqs=" + prereqs +
                 ", categories=" + getCategoryList() +
                 '}';
