@@ -7,6 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.http.ResponseEntity;
@@ -41,6 +42,7 @@ import static com.google.common.collect.Lists.newArrayList;
 
 @Controller
 @EnableAutoConfiguration
+@EnableCaching
 @SpringBootApplication
 @EnableMongoRepositories
 @EnableSwagger2
