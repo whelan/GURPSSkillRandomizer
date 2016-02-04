@@ -10,6 +10,7 @@ import java.util.List;
  */
 public class SkillTemplate implements Serializable {
 
+    private int maxPointSkill = 1;
     private List<String> includedSkills;
     private Category excludeCategory;
 
@@ -28,5 +29,9 @@ public class SkillTemplate implements Serializable {
 
     public void setExcludeCategory(Category excludeCategory) {
         this.excludeCategory = excludeCategory;
+    }
+
+    public int getMaxPointSkill() {
+        return maxPointSkill;
     }
 }

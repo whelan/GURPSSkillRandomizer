@@ -48,7 +48,9 @@ public class SkillsController {
                 .filter(skill -> skill.getTechLevel() <= techLevel)
                 .filter(skill -> isSkillInTemplate(template, skill))
                 .collect(Collectors.toList());
-        return skills.get(random.nextInt(skills.size()-1));
+        Skill skill = skills.get(random.nextInt(skills.size()-1));
+        skill.setPointsGiven(random.nextInt(template.getMaxPointSkill()-1)+1);
+        return skill;
     }
 
     private boolean isSkillInTemplate(@RequestBody SkillTemplate template, Skill skill) {

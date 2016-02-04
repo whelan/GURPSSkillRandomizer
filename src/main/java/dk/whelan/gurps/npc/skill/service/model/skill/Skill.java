@@ -2,6 +2,7 @@ package dk.whelan.gurps.npc.skill.service.model.skill;
 
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.ArrayList;
@@ -26,6 +27,10 @@ public class Skill {
     private Category categories;
     @Field("tl")
     private Integer techLevel;
+
+    @Transient
+    private int pointsGiven = 0;
+
 
     public Skill() {
     }
@@ -124,6 +129,15 @@ public class Skill {
         }
         return new ArrayList<>();
     }
+
+    public int getPointsGiven() {
+        return pointsGiven;
+    }
+
+    public void setPointsGiven(int pointsGiven) {
+        this.pointsGiven = pointsGiven;
+    }
+
     @Override
     public String toString() {
         return "skill{" +
