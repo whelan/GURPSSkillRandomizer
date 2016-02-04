@@ -40,5 +40,15 @@ public class SkillsController {
         return skills.get(random.nextInt(skills.size()-1));
     }
 
+    @RequestMapping(value = "/skills/template/random",method = RequestMethod.POST)
+    @ResponseBody
+    Skill getRandomSkillForTemplateTL(@RequestBody SkillTemplate template, @RequestParam(value="tl", defaultValue="0") int techLevel ) {
+        List<Skill> skills =  repository.findAll()
+                .stream()
+                .filter(skill -> skill.getTechLevel() <= techLevel)
+                .filter(skill -> template.getSkills().contains(skill.getName()))
+                .collect(Collectors.toList());
+        return skills.get(random.nextInt(skills.size()-1));
+    }
 
 }
