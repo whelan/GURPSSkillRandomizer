@@ -1,5 +1,7 @@
 package dk.whelan.gurps.npc.skill.service.rest;
 
+import dk.whelan.gurps.npc.skill.service.model.skill.Category;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -8,13 +10,23 @@ import java.util.List;
  */
 public class SkillTemplate implements Serializable {
 
-    private List<String> skills;
+    private List<String> includedSkills;
+    private Category excludeCategory;
 
-    public List<String> getSkills() {
-        return skills;
+
+    public List<String> getIncludedSkills() {
+        return includedSkills;
     }
 
-    public void setSkills(List<String> skills) {
-        this.skills = skills;
+    public void setIncludedSkills(List<String> includedSkills) {
+        this.includedSkills = includedSkills;
+    }
+
+    public Category getExcludeCategory() {
+        return excludeCategory;
+    }
+
+    public void setExcludeCategory(Category excludeCategory) {
+        this.excludeCategory = excludeCategory;
     }
 }

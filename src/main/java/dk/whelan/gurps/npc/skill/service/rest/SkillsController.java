@@ -46,9 +46,19 @@ public class SkillsController {
         List<Skill> skills =  repository.findAll()
                 .stream()
                 .filter(skill -> skill.getTechLevel() <= techLevel)
-                .filter(skill -> template.getSkills().contains(skill.getName()))
+                .filter(skill -> isSkillInTemplate(template, skill))
                 .collect(Collectors.toList());
         return skills.get(random.nextInt(skills.size()-1));
+    }
+
+    private boolean isSkillInTemplate(@RequestBody SkillTemplate template, Skill skill) {
+        if (template.getIncludedSkills().contains(skill.getName())) {
+            return true;
+        } else if (template.getExcludeCategory() != null && skill.getCategories() != null && skill.getCategories().getCategories().stream()
+                    .filter(cat -> template.getExcludeCategory().getCategories().contains(cat)).findFirst().isPresent()) {
+            return false;
+        }
+        return true;
     }
 
 }
